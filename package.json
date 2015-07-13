@@ -1,0 +1,27 @@
+{
+  "name": "node-p4-swarm",
+  "version": "1.0.0",
+  "description": "Provide a support to integrate with Perforce Swarm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heycalmdown/node-p4-swarm.git"
+  },
+  "keywords": [
+    "perforce"
+  ],
+  "author": "hey.calmdown@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heycalmdown/node-p4-swarm/issues"
+  },
+  "homepage": "https://github.com/heycalmdown/node-p4-swarm",
+  "dependencies": {
+    "bluebird": "^2.9.33",
+    "superagent": "^1.2.0",
+    "superagent-bluebird-promise": "^2.0.2"
+  }
+}
