@@ -21,6 +21,8 @@
   "homepage": "https://github.com/heycalmdown/node-p4-swarm",
   "dependencies": {
     "bluebird": "^2.9.33",
+    "lodash": "^3.10.0",
+    "qs": "^4.0.0",
     "superagent": "^1.2.0",
     "superagent-bluebird-promise": "^2.0.2"
   }
