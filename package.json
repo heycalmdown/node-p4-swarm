@@ -1,10 +1,11 @@
 {
   "name": "node-p4-swarm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provide a support to integrate with Perforce Swarm",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "babel -d lib/ es6/",
+    "prepublish": "npm run compile"
   },
   "repository": {
     "type": "git",

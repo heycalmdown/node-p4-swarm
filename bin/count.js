@@ -1,6 +1,6 @@
 #!/usr/bin/env babel-node
-import Swarm from '../index';
-import config from '../config.js';
+import Swarm from '../es6/index';
+import config from './config.js';
 import _ from 'lodash';
 import moment from 'moment';
 
