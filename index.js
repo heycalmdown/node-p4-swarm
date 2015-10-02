@@ -8,6 +8,10 @@ function qsArray(query) {
   return qs.stringify(query, {arrayFormat: 'brackets'});
 }
 
+// TODO
+// getReviews + by project
+
+// https://swarm.workshop.perforce.com/docs/api.endpoints.html
 export default class Swarm {
   constructor(baseUrl, version) {
     this.baseUrl = baseUrl;
