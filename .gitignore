@@ -3,7 +3,7 @@ logs
 *.log
 
 # private configuration
-config.local.json
+bin/config.local.json
 
 # Runtime data
 pids
