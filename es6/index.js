@@ -1,5 +1,6 @@
 import qs from 'qs';
 import superagent from 'superagent-bluebird-promise';
+import * as _ from 'lodash';
 
 function body(agent) {
   return agent.then(o => o.body);
@@ -31,8 +32,27 @@ export default class Swarm {
   getReviewsAll() {
     return body(this.GET('reviews'));
   }
-  getReviewsOpened() {
-    return body(this.GET('reviews').query(qsArray({state: ['needsReview', 'needsRevision']})));
+  getReviewsOpened(opts) {
+    return body(this.GET('reviews').query(qsArray({state: ['needsReview', 'needsRevision']}))).then(o => {
+      o.reviews = o.reviews.filter(review => {
+        if (opts.projects) {
+          if (_.intersection(_.keys(review.projects), opts.projects).length === 0) return;
+        }
+        if (opts.votes) {
+          let voted = _.filter(review.participants, p => {
+            if (!p.vote) return;
+            return p.vote.value === 1 && !p.vote.isStale;
+          });
+          if (voted.length < opts.votes) return;
+        }
+        if (!_.isUndefined(opts.committed)) {
+          if (opts.committed && review.commits.length === 0) return;
+          if (!opts.committed && review.commits.length !== 0) return;
+        }
+        return true;
+      });
+      return o;
+    });
   }
   getReviewsAfter(revision) {
     return body(this.GET('reviews').query({after: revision}));
